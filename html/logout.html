@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Xuất</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .logout-container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logout-container h1 {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .logout-container p {
+            margin-bottom: 20px;
+        }
+        
+        .logout-container a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #464040;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .logout-container a:hover {
+            background-color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="logout-container">
+        <h1>Bạn đã đăng xuất!</h1>
+        <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.</p>
+        <a href="login.html">Đăng nhập lại</a>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 3000);
+        // Clear all user data from local storage
+        localStorage.clear();
+
+        // Optionally, you can redirect the user to the login page automatically after a delay
+        // setTimeout(function() {
+        //     window.location.href = 'login.html';
+        // }, 3000);  // Redirect after 3 seconds
+    </script>
+
+
+</body>
+
+</html>

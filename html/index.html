@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <title>Shop Quân Áo VD Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        /* General */
+        
+        @keyframes gradientAnimation {
+            0% {
+                background: linear-gradient(90deg, #f8f8f8, #000000);
+            }
+            50% {
+                background: linear-gradient(90deg, #7c6792, #8bb6ff);
+            }
+            100% {
+                background: linear-gradient(90deg, #2c3685, #17054a);
+            }
+        }
+        
+        .banner {
+            animation: gradientAnimation 10s ease infinite;
+            /* Change every 10 seconds */
+            height: 400px;
+            background-size: cover;
+            color: #ffffff;
+            /* Change text color to white for better contrast */
+            font-size: 36px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            /* Positioning context for overlay */
+            text-align: center;
+            /* Center the text */
+            font-family: cursive;
+        }
+        /* Overlay to enhance text visibility */
+        
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #dee2e600;
+            /* Semi-transparent black overlay */
+            z-index: 1;
+            /* Place overlay above background but below text */
+        }
+        
+        .product img {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        /* Footer styling */
+        
+        .footer-info {
+            background-color: #000000;
+            color: white;
+            padding: 2em 1em;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        
+        .footer-info .footer-column {
+            flex: 1;
+            min-width: 250px;
+            padding: 1em;
+        }
+        
+        .footer-info h3,
+        .footer-info h4 {
+            color: #dfdfdf;
+        }
+        
+        .footer-info p {
+            color: #ddd;
+            margin: 0.5em 0;
+        }
+        
+        .footer-info .social-media a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 0.5em;
+            margin-top: 1em;
+        }
+        
+        .newsletter-form input[type="email"] {
+            padding: 0.5em;
+            font-size: 1em;
+            border: none;
+            border-radius: 4px;
+            width: 200px;
+        }
+        
+        .newsletter-form button {
+            background-color: #4f4f4f;
+            color: rgb(254, 254, 254);
+            border: none;
+            padding: 0.5em 1em;
+            font-size: 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #ebebeb;
+        }
+        
+        .footer-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .footer-info ul li {
+            margin: 0.5em 0;
+        }
+        
+        .footer-info ul li a {
+            color: #ffffff;
+        }
+        
+        .footer-info ul li a:hover {
+            color: #ddd;
+        }
+        
+        .card {
+            margin-bottom: 30px;
+        }
+        /* Adjust for small screens */
+        
+        @media (max-width: 768px) {
+            .banner {
+                height: 250px;
+                font-size: 24px;
+            }
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #343a40;
+            padding: 10px 20px;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        .top-notification {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 0.5em;
+            font-size: 2em;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        
+        .logo img {
+            height: 60px;
+            /* Điều chỉnh chiều cao của logo */
+            width: auto;
+            /* Đảm bảo rằng logo sẽ không bị méo */
+            object-fit: contain;
+            /* Giữ tỷ lệ của logo */
+            max-width: 150px;
+            /* Đặt kích thước tối đa của logo nếu cần */
+        }
+        
+        .menu,
+        .hotline,
+        .store-info,
+        .account-info,
+        .cart {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+        
+        .menu-icon {
+            font-size: 20px;
+            margin-right: 5px;
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+            width: 20%;
+        }
+        
+        .menu:hover,
+        .hotline:hover,
+        .store-info:hover,
+        .account-info:hover,
+        .cart:hover {
+            color: #000000;
+        }
+        
+        .hotline i,
+        .store-info i,
+        .account-info i,
+        .cart i {
+            margin-right: 5px;
+            font-size: 16px;
+        }
+        
+        .cart strong {
+            background-color: #ffffff;
+            padding: 0 5px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            .logo img {
+                height: 40px;
+                /* Thu nhỏ logo trên màn hình nhỏ hơn */
+            }
+            .search-bar {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+        
+        .header img {
+            border-radius: 50%;
+            /* Make the logo circular */
+            border: 2px solid rgb(255, 255, 255);
+            /* Add a border around the logo */
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            /* Larger font size for the title */
+            margin: 0.5rem 0;
+            /* Adjust margin */
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            /* Slightly larger text for the subtitle */
+        }
+        
+        @keyframes changeBackground {
+            0% {
+                background-image: url('../img/1.avif');
+            }
+            50% {
+                background-image: url('../img/2.avif');
+                /* Add your second image */
+            }
+            100% {
+                background-image: url('../img/1.avif');
+                /* Return to the first image */
+            }
+        }
+        
+        .navbar-nav .nav-link {
+            transition: background-color 0.3s, color 0.3s;
+            /* Smooth transition */
+        }
+        
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            /* Light background on hover */
+            color: #f8f9fa;
+            /* Change text color on hover */
+        }
+        
+        .navbar-nav .nav-item.active .nav-link {
+            background-color: #007bff;
+            /* Active link background color */
+            color: white;
+            /* Active link text color */
+        }
+        
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.5);
+            /* Toggler border color */
+        }
+        /* Add some padding to the brand logo */
+        
+        .navbar-brand {
+            padding-left: 15px;
+        }
+        
+        .hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-effect:hover {
+            transform: translateY(-5px);
+            /* Slightly lift the card */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            /* Add shadow on hover */
+        }
+        
+        .card-img-top {
+            border-radius: 10px;
+            /* Round the image corners */
+            transition: transform 0.3s ease;
+            /* Smooth image transition */
+        }
+        
+        .card-img-top:hover {
+            transform: scale(1.05);
+            /* Slightly zoom image on hover */
+        }
+        
+        .bg-light {
+            background-color: #f8f9fa;
+            /* Light background color */
+            background-image: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+            /* Subtle gradient */
+            border-radius: 10px;
+            /* Rounded corners */
+            padding: 20px;
+            /* Padding for spacing */
+            transition: background-color 0.5s ease;
+            /* Smooth background color transition */
+        }
+        
+        .bg-light:hover {
+            background-color: #e2e6ea;
+            /* Change background color on hover */
+        }
+        
+        body {
+            background-color: #343a40;
+        }
+        
+        .banner {
+            position: relative;
+            text-align: center;
+            color: white;
+            background-color: #333;
+            /* Thay đổi màu nền nếu cần */
+            padding: 50px 20px;
+        }
+        
+        .banner-image {
+            width: 100%;
+            height: auto;
+            opacity: 0.8;
+            /* Tăng giảm độ mờ */
+            transition: transform 0.3s;
+            /* Hiệu ứng chuyển động */
+        }
+        
+        .banner-image:hover {
+            transform: scale(1.05);
+            /* Phóng to hình ảnh khi hover */
+        }
+        
+        .cta-button {
+            background-color: #ff6600;
+            /* Màu nền cho nút */
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            /* Hiệu ứng chuyển màu nền */
+        }
+        
+        .cta-button:hover {
+            background-color: #e55b00;
+            /* Màu nền khi hover */
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            /* Phông chữ dễ đọc */
+            color: #7e7e7e;
+        }
+        
+        .banner {
+            position: relative;
+            overflow: hidden;
+            height: 50vh;
+            /* Chiều cao đầy đủ cho banner */
+            color: white;
+            /* Màu chữ trắng để nổi bật trên nền tối */
+            display: flex;
+            /* Sử dụng flexbox để căn giữa */
+            flex-direction: column;
+            /* Xếp các phần tử theo chiều dọc */
+            justify-content: center;
+            /* Căn giữa theo chiều dọc */
+            align-items: center;
+            /* Căn giữa theo chiều ngang */
+            text-align: center;
+            /* Căn giữa văn bản */
+        }
+        
+        .animated-video {
+            width: 50%;
+            height: auto;
+            /* Đảm bảo video chiếm đầy đủ chiều cao */
+            object-fit: cover;
+            /* Đảm bảo video không bị bóp méo */
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            /* Lớp phủ tối với độ trong suốt 50% */
+        }
+        
+        .banner-title {
+            font-size: 3rem;
+            /* Kích thước chữ lớn hơn */
+            font-weight: bold;
+            /* Chữ đậm */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            /* Hiệu ứng bóng cho chữ */
+            letter-spacing: 1px;
+            /* Khoảng cách giữa các chữ cái */
+            margin: 0;
+            /* Bỏ khoảng cách mặc định */
+        }
+        
+        .banner-description {
+            font-size: 1.5rem;
+            /* Kích thước chữ vừa phải */
+            max-width: 600px;
+            /* Giới hạn chiều rộng để tránh dài quá */
+            margin: 10px 0;
+            /* Khoảng cách giữa mô tả và tiêu đề */
+            padding: 0 20px;
+            /* Thêm khoảng đệm hai bên */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            /* Hiệu ứng bóng cho chữ */
+        }
+        
+        .banner-button {
+            padding: 15px 30px;
+            /* Thêm không gian cho nút */
+            background-color: #a14d3a;
+            /* Màu nền cho nút */
+            color: white;
+            /* Màu chữ cho nút */
+            text-decoration: none;
+            /* Bỏ gạch chân */
+            border-radius: 5px;
+            /* Bo tròn các góc */
+            font-size: 1.2rem;
+            /* Kích thước chữ cho nút */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            /* Hiệu ứng chuyển đổi mượt mà */
+            margin-top: 20px;
+            /* Khoảng cách giữa mô tả và nút */
+        }
+        
+        .banner-button:hover {
+            background-color: #ff6f40;
+            /* Màu sắc khác khi hover */
+            transform: scale(1.05);
+            /* Phóng to nút khi hover */
+        }
+        
+        @media (max-width: 768px) {
+            .banner-title {
+                font-size: 2rem;
+                /* Kích thước chữ nhỏ hơn cho màn hình nhỏ */
+            }
+            .banner-description {
+                font-size: 1rem;
+                /* Kích thước chữ nhỏ hơn cho mô tả */
+            }
+            .banner-button {
+                padding: 10px 20px;
+                /* Điều chỉnh kích thước nút cho màn hình nhỏ */
+                font-size: 1rem;
+                /* Kích thước chữ nhỏ hơn cho nút */
+            }
+        }
+        
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            border-radius: 50%;
+            font-size: 30px;
+        }
+        /* Widen the area for clicking on the arrows */
+        
+        .custom-arrow-left,
+        .custom-arrow-right {
+            width: 60px;
+            /* Wider click area */
+        }
+        /* Move arrows slightly outside the carousel area */
+        
+        .custom-arrow-left {
+            left: -40px;
+            /* Moves the left arrow more outward */
+        }
+        
+        .custom-arrow-right {
+            right: -40px;
+            /* Moves the right arrow more outward */
+        }
+        /* Hover effect to make the arrows stand out */
+        
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            border-radius: 50%;
+        }
+        
+        .custom-arrow-left,
+        .custom-arrow-right {
+            width: 60px;
+        }
+        
+        .custom-arrow-left {
+            left: -40px;
+        }
+        
+        .custom-arrow-right {
+            right: -40px;
+        }
+        
+        .custom-arrow-left:hover .carousel-control-prev-icon,
+        .custom-arrow-right:hover .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+        /* Button Styles */
+        
+        .btn-custom {
+            background-color: gray;
+            color: white;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-custom:hover {
+            background-color: black;
+            color: white;
+        }
+        
+        .btn-custom:active {
+            background-color: black;
+            color: white;
+        }
+        
+        .card-body {
+            padding: 1rem;
+        }
+        
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-text {
+            font-size: 0.9rem;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        .btn-block {
+            font-size: 0.9rem;
+        }
+        
+        .hover-effect:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .card {
+            background-color: #000000;
+        }
+        
+        h2 {
+            background-color: #343a40;
+            ;
+            font-family: 'Times New Roman', Times, serif;
+            color: hsl(180, 4%, 95%);
+        }
+        
+        .cart strong {
+            background-color: #6f6f6f;
+        }
+        /* Header Styles */
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            /* Vertically center items */
+            justify-content: space-between;
+            /* Evenly distribute items */
+            background-color: #343a40;
+            padding: 10px 20px;
+            color: #fff;
+        }
+        /* Menu Button */
+        
+        .menu {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        
+        .logo img {
+            width: 100px;
+            /* Adjust logo size */
+        }
+        
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            /* Center search bar */
+            margin: 0 20px;
+            /* Add margin on sides */
+        }
+        /* Navigation Menu Styles */
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+            /* Animation for fade-in effect */
+        }
+        
+        .login-btn {
+            background-color: #000000;
+            /* Green background for login */
+            color: #fff;
+            /* White text */
+        }
+        
+        .register-btn {
+            background-color: #070707;
+            /* Blue background for register */
+            color: #fbfbfb;
+            /* White text */
+        }
+        /* Khoảng trống từ nội dung chính đến footer */
+        
+        .main-content {
+            margin-bottom: 50px;
+            /* Điều chỉnh để tạo khoảng trống giữa nội dung chính và footer */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+
+            <!-- Menu chính -->
+            <a href="#" class="menu" id="menu-toggle">
+                <span class="menu-icon">☰</span>
+                <span class="menu-text">MENU</span>
+            </a>
+
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#"><img src="../img/0000.jpg" alt="Sudes Sport Logo"></a>
+            </div>
+
+            <!-- Thanh tìm kiếm -->
+            <div class="search-bar">
+                <div class="input-group">
+                    <input type="text" id="search-input" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                    <div class="input-group-append">
+                        <button class="btn" style="background-color: #090807; color: rgb(255, 255, 255);" type="button" id="search-button">Tìm kiếm</button>
+                    </div>
+                </div>
+                <div id="search-results" class="search-results"></div>
+                <!-- Display search results here -->
+            </div>
+
+            <!-- Nút đăng nhập và đăng ký -->
+            <div class="auth-buttons" id="auth-buttons">
+                <a href="login.html" id="login-link">
+                    <button class="login-btn">Đăng Nhập</button>
+                </a>
+                <a href="register.html" id="register-link">
+                    <button class="register-btn">Đăng Ký Tài Khoản</button>
+                </a>
+            </div>
+
+            <!-- Nút đăng xuất -->
+            <div class="logout-buttons" id="logout-buttons" style="display: none;">
+                <button class="logout-btn" id="logout-button">Đăng Xuất</button>
+            </div>
+
+
+            <!-- Số điện thoại hotline -->
+            <a href="tel:19006750" class="hotline">
+                <i class="fa fa-whatsapp"></i>
+                <span>Hotline hỗ trợ:</span>
+                <strong>1900 6750</strong>
+            </a>
+
+            <!-- Thông tin cửa hàng -->
+            <a href="#" class="store-info">
+                <i class="fa fa-store"></i>
+                <span>Hệ thống cửa hàng</span>
+            </a>
+
+            <!-- Thông tin tài khoản -->
+            <a href="#" class="account-info">
+                <i class="fa fa-user"></i>
+                <span>Thông tin</span>
+                <strong>Tài khoản</strong>
+            </a>
+
+            <!-- Giỏ hàng -->
+            <!-- Header Cart Section -->
+            <a href="giohang.html" class="cart" onclick="toggleCartDetails(event)">
+                <div>
+                    <span>Giỏ hàng (<span id="cart-count">0</span>)</span>
+                    <div class="cart-details" id="cart-details" style="display: none;">
+                        <div id="cart-items"></div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+        <script>
+            function toggleCartDetails(event) {
+                event.preventDefault(); // Prevents default link behavior
+                const cartDetails = document.getElementById("cart-details");
+
+                // Toggle display of cart details
+                if (cartDetails.style.display === "none" || !cartDetails.style.display) {
+                    cartDetails.style.display = "block";
+                } else {
+                    cartDetails.style.display = "none";
+                }
+            }
+        </script>
+        <!-- Menu điều hướng với dropdown đa cấp -->
+        <nav class="nav-menu" id="nav-menu" style="display: none;">
+            <ul>
+                <li><a href="#">Trang Chủ</a></li>
+                <li>
+                    <a href="#" id="san-pham-link">Sản Phẩm</a>
+                    <ul class="dropdown" id="san-pham-dropdown" style="display: none;">
+                        <li><a href="#">Sản Phẩm Mới</a></li>
+                        <li><a href="#">Sản Phẩm Khuyến Mãi</a></li>
+                        <li><a href="#">Sản Phẩm Bán Chạy</a></li>
+                        <li><a href="#">Sản Phẩm Theo Danh Mục</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Khuyến Mãi</a></li>
+                <li><a href="#">Tin Tức</a></li>
+                <li><a href="#">Liên Hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--Timkiem-->
+    <script>
+        // Define a list of products and their corresponding URLs
+        const products = [{
+            name: "Áo Thun",
+            url: "aothunnam.html"
+        }, {
+            name: "Quần shorts",
+            url: "quanshort.html"
+        }, {
+            name: "Váy Nữ",
+            url: "vaynu.html"
+        }, {
+            name: "Đồ Ngủ Nữ",
+            url: "dongu.html"
+        }, {
+            name: "Hoodie",
+            url: "hoodie.html"
+        }, {
+            name: "Áo Sơ Mi",
+            url: "somi.html"
+        }, {
+            name: "Quần Jean",
+            url: "moden.html"
+        }, {
+            name: "Quần Nam",
+            url: "quannam.html"
+        }, ];
+
+        // Get the search input and button elements
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-button');
+        const searchResults = document.getElementById('search-results');
+
+        // Add event listener to search input for real-time search (optional)
+        searchInput.addEventListener('input', function() {
+            performSearch();
+        });
+
+        // Add an event listener to the search button
+        searchButton.addEventListener('click', function() {
+            performSearch();
+        });
+
+        // Function to perform the search
+        function performSearch() {
+            const query = searchInput.value.toLowerCase(); // Get the search input and convert to lowercase
+            const results = products.filter(product => product.name.toLowerCase().includes(query)); // Filter products based on query
+
+            displayResults(results); // Call function to display search results
+        }
+
+        // Function to display search results
+        function displayResults(results) {
+            if (results.length === 0) {
+                searchResults.innerHTML = '<p>Không tìm thấy sản phẩm nào.</p>';
+            } else {
+                searchResults.innerHTML = '<ul>' + results.map(item =>
+                    `<li><a href="${item.url}">${item.name}</a></li>`
+                ).join('') + '</ul>';
+            }
+            searchResults.style.display = 'block'; // Show the results container
+        }
+
+        // Close search results if clicked outside the search area
+        document.addEventListener('click', function(event) {
+            if (!searchBarContains(event.target)) {
+                searchResults.style.display = 'none'; // Hide the results container
+            }
+        });
+
+        // Helper function to check if click was inside the search area
+        function searchBarContains(target) {
+            return searchInput.contains(target) || searchButton.contains(target) || searchResults.contains(target);
+        }
+    </script>
+
+
+    <script>
+        // Get elements for menu toggle and sub-menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const sanPhamLink = document.getElementById('san-pham-link');
+        const sanPhamDropdown = document.getElementById('san-pham-dropdown');
+
+        // Toggle main menu visibility when 'Menu' is clicked
+        menuToggle.addEventListener('click', function(event) {
+            event.preventDefault();
+            navMenu.style.display = (navMenu.style.display === 'block') ? 'none' : 'block';
+        });
+
+        // Toggle dropdown visibility when 'Sản Phẩm' is clicked
+        sanPhamLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            sanPhamDropdown.style.display = (sanPhamDropdown.style.display === 'block') ? 'none' : 'block';
+        });
+
+        // Close dropdown if clicked outside
+        document.addEventListener('click', function(event) {
+            if (!sanPhamLink.contains(event.target) && !sanPhamDropdown.contains(event.target)) {
+                sanPhamDropdown.style.display = 'none'; // Close dropdown
+            }
+
+            if (!menuToggle.contains(event.target) && !navMenu.contains(event.target)) {
+                navMenu.style.display = 'none'; // Close menu if clicked outside
+            }
+        });
+    </script>
+
+
+
+    <section class="banner">
+        <div class="overlay"></div>
+        <video autoplay loop muted class="animated-video">
+            <source src="../img/9710109-uhd_2560_1440_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+
+
+    <!-- giảm giá -->
+    <div class="top-notification">
+        <span>Welcome to VDStore</span>
+    </div>
+    <!-- Phần quảng cáo và tin tức -->
+    <section class="promotion-news-section">
+        <div class="container">
+            <!-- Quảng cáo -->
+            <div class="promotion">
+                <h2>Ưu Đãi Đặc Biệt</h2>
+                <div class="promotion-content">
+                    <img src="../img/sauNbaa.png" alt="Promotion Image" class="promotion-img">
+                    <div class="promotion-text">
+                        <h3>Giảm Giá Lên Đến 50%!</h3>
+                        <p>Đừng bỏ lỡ cơ hội sở hữu những sản phẩm thời trang mới nhất với giá ưu đãi. Áp dụng cho tất cả các sản phẩm mùa hè. <strong>Mua ngay!</strong></p>
+                        <a href="#" class="btn btn-promotion">Xem Thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tin tức thời trang -->
+            <div class="fashion-news">
+                <h2>Tin Tức Thời Trang</h2>
+                <div class="news-list">
+                    <div class="news-item">
+                        <img src="../img/mnm.png" alt="Fashion News 1" class="news-img">
+                        <div class="news-text">
+                            <h4><a href="#">Xu Hướng Mùa Thu 2024: Sự Lên Ngôi Của Gam Màu Trung Tính</a></h4>
+                            <p>Khám phá những xu hướng thời trang hot nhất mùa thu năm nay với màu sắc nổi bật, mang lại vẻ trẻ đẹp và tinh tế...</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <img src="../img/aoda.png" alt="Fashion News 2" class="news-img">
+                        <div class="news-text">
+                            <h4><a href="#">Thời Trang Bền Vững: Xu Hướng Thời Trang áo khoác da bụi bẩn Đang Được Yêu Thích</a></h4>
+                            <p>Thời trang bền vững đang ngày càng được quan tâm với nhiều lựa chọn thần thái và huyền bí...</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <img src="../img/aothungmuahe.png" alt="Fashion News 3" class="news-img">
+                        <div class="news-text">
+                            <h4><a href="#">Món Đồ Không Thể Thiếu Trong Tủ Đồ Của Bạn Mùa Hè Này</a></h4>
+                            <p>Hãy đảm bảo bạn đã sẵn sàng với những món đồ thời trang không thể thiếu cho mùa hè năm nay...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Main content -->
+    <div class="container">
+        <!-- Categories Section -->
+        <h2 class="text-center my-4">Sản Phẩm Nổi Bật</h2>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <div class="card p-3 shadow-sm hover-effect">
+                    <img src="../img/vn-11134207-7qukw-livv5j0j52x840.jpg" alt="Áo" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">Áo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-3 shadow-sm hover-effect">
+                    <img src="../img/quan-dai-local-brand-dep-nhung-tam-2.webp" alt="Quần" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">Quần</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-3 shadow-sm hover-effect">
+                    <img src="../img/6.jpg" alt="Áo Hoodie" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">Áo Hoodie</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-3 shadow-sm hover-effect">
+                    <img src="../img/7.jpg" alt="Quần Short" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">Short</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-center my-4">Sản phẩm</h2>
+        <!-- Product Section -->
+        <div id="productCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Carousel Item 1 -->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <!-- Áo thun nam -->
+                        <div class="col-md-3">
+                            <div class="card p-3 shadow-sm hover-effect h-100">
+                                <a href="aothunnam.html">
+                                    <img src="../img/aothung.png" alt="Áo thun nam" class="card-img-top">
+                                </a>
+                                <div class="card-body text-center">
+                                    <a href="aothunnam.html">
+                                        <h5 class="card-title">Áo thun nam</h5>
+                                    </a>
+                                    <p class="card-text">Chất liệu cotton</p>
+                                    <p class="text-danger font-weight-bold">300,000 VND</p>
+                                    <!-- Nút Thêm vào giỏ hàng -->
+                                    <button class="btn btn-custom btn-block" onclick="addToCart('Áo thun nam', '300,000 VND')">Thêm vào giỏ hàng</button>
+                                    <a href="aothunnam.html" class="btn btn-info btn-block mt-2">Xem chi tiết</a>
+                                </div>
+                                <div class="card-footer">
+                                    <h6>Đánh giá sản phẩm</h6>
+                                    <div class="rating mb-2">
+                                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                                        <!-- Change to actual star rating if needed -->
+                                    </div>
+                                    <textarea class="form-control mb-2" placeholder="Nhập đánh giá của bạn..."></textarea>
+                                    <button class="btn btn-secondary btn-block" onclick="submitReview('Áo thun nam')">Gửi đánh giá</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Váy nữ -->
+                        <div class="col-md-3">
+                            <div class="card p-3 shadow-sm hover-effect h-100">
+                                <a href="vaynu.html">
+                                    <img src="../img/vaynu.png" alt="Váy nữ mùa hè" class="card-img-top">
+                                </a>
+                                <div class="card-body text-center">
+                                    <a href="vaynu.html">
+                                        <h5 class="card-title">Váy nữ</h5>
+                                    </a>
+                                    <p class="card-text">Thiết kế trẻ trung</p>
+                                    <p class="text-danger font-weight-bold">500,000 VND</p>
+                                    <button class="btn btn-custom btn-block" onclick="addToCart('Váy nữ', '500,000 VND')">Thêm vào giỏ hàng</button>
+                                    <a href="vaynu.html" class="btn btn-info btn-block mt-2">Xem chi tiết</a>
+                                </div>
+                                <div class="card-footer">
+                                    <h6>Đánh giá sản phẩm</h6>
+                                    <div class="rating mb-2">
+                                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                                        <!-- Change to actual star rating if needed -->
+                                    </div>
+                                    <textarea class="form-control mb-2" placeholder="Nhập đánh giá của bạn..."></textarea>
+                                    <button class="btn btn-secondary btn-block" onclick="submitReview('Áo thun nam')">Gửi đánh giá</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hoodie -->
+                        <div class="col-md-3">
+                            <div class="card p-3 shadow-sm hover-effect h-100">
+                                <a href="hoodie.html">
+                                    <img src="../img/hoodie.png" alt="Hoodie" class="card-img-top">
+                                </a>
+                                <div class="card-body text-center">
+                                    <a href="hoodie.html">
+                                        <h5 class="card-title">Hoodie</h5>
+                                    </a>
+                                    <p class="card-text">Chất liệu thoải mái</p>
+                                    <p class="text-danger font-weight-bold">700,000 VND</p>
+                                    <button class="btn btn-custom btn-block" onclick="addToCart('Hoodie', '700,000 VND')">Thêm vào giỏ hàng</button>
+                                    <a href="hoodie.html" class="btn btn-info btn-block mt-2">Xem chi tiết</a>
+                                </div>
+                                <div class="card-footer">
+                                    <h6>Đánh giá sản phẩm</h6>
+                                    <div class="rating mb-2">
+                                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                                        <!-- Change to actual star rating if needed -->
+                                    </div>
+                                    <textarea class="form-control mb-2" placeholder="Nhập đánh giá của bạn..."></textarea>
+                                    <button class="btn btn-secondary btn-block" onclick="submitReview('Áo thun nam')">Gửi đánh giá</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Áo sơ mi -->
+                        <div class="col-md-3">
+                            <div class="card p-3 shadow-sm hover-effect h-100">
+                                <a href="somim.html">
+                                    <img src="../img/somi.png" alt="Áo sơ mi" class="card-img-top">
+                                </a>
+                                <div class="card-body text-center">
+                                    <a href="somim.html">
+                                        <h5 class="card-title">Áo sơ mi</h5>
+                                    </a>
+                                    <p class="card-text">Sơ mi ôm body</p>
+                                    <p class="text-danger font-weight-bold">200,000 VND</p>
+                                    <button class="btn btn-custom btn-block" onclick="addToCart('Áo sơ mi', '200,000 VND')">Thêm vào giỏ hàng</button>
+                                    <a href="somim.html" class="btn btn-info btn-block mt-2">Xem chi tiết</a>
+                                </div>
+                                <div class="card-footer">
+                                    <h6>Đánh giá sản phẩm</h6>
+                                    <div class="rating mb-2">
+                                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                                        <!-- Change to actual star rating if needed -->
+                                    </div>
+                                    <textarea class="form-control mb-2" placeholder="Nhập đánh giá của bạn..."></textarea>
+                                    <button class="btn btn-secondary btn-block" onclick="submitReview('Áo thun nam')">Gửi đánh giá</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel Item 2 -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card p-3 shadow-sm hover-effect h-100">
+                                <a href="dongu.html">
+                                    <img src="../img/dongu.png" alt="Sản phẩm mới 5" class="card-img-top">
+                                </a>
+                                <div class="card-body text-center">
+                                    <a href="dongu.html">
+                                        <h5 class="card-title">Đồ ngủ cao cấp</h5>
+                                    </a>
+                                    <p class="card-text">Mặc ngủ thoải mái mát mẽ</p>
+                                    <p class="text-danger font-weight-bold">250,000 VND</p>
+                                    <button class="btn btn-custom btn-block" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                                    <a href="dongu.html" class="btn btn-info btn-block mt-2">Xem chi tiết</a>
+                                </div>
+                                <div class="card-footer">
+                                    <h6>Đánh giá sản phẩm</h6>
+                                    <div class="rating mb-2">
+                                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                                        <!-- Change to actual star rating if needed -->
+                                    </div>
+                                    <textarea class="form-control mb-2" placeholder="Nhập đánh giá của bạn..."></textarea>
+                                    <button class="btn btn-secondary btn-block" onclick="submitReview('Áo thun nam')">Gửi đánh giá</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card p-3 shadow-sm hover-effect h-100">
+                                <a href="quannam.html">
+                                    <img src="../img/quan.png" alt="Sản phẩm mới 5" class="card-img-top">
+                                </a>
+                                <div class="card-body text-center">
+                                    <a href="quannam.html">
+                                        <h5 class="card-title">Quần Nam</h5>
+                                    </a>
+                                    <p class="card-text">Chất liệt dày và tinh xảo</p>
+                                    <p class="text-danger font-weight-bold">250,000 VND</p>
+                                    <button class="btn btn-custom btn-block" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                                    <a href="quannam.html" class="btn btn-info btn-block mt-2">Xem chi tiết</a>
+                                </div>
+                                <div class="card-footer">
+                                    <h6>Đánh giá sản phẩm</h6>
+                                    <div class="rating mb-2">
+                                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                                        <!-- Change to actual star rating if needed -->
+                                    </div>
+                                    <textarea class="form-control mb-2" placeholder="Nhập đánh giá của bạn..."></textarea>
+                                    <button class="btn btn-secondary btn-block" onclick="submitReview('Áo thun nam')">Gửi đánh giá</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card p-3 shadow-sm hover-effect h-100">
+                                <a href="quanshort.html">
+                                    <img src="../img/quan sort.png" alt="Sản phẩm mới 5" class="card-img-top">
+                                </a>
+                                <div class="card-body text-center">
+                                    <a href="quan short.html">
+                                        <h5 class="card-title">Quần Short</h5>
+                                    </a>
+                                    <p class="card-text">Chất liệu cao cấp</p>
+                                    <p class="text-danger font-weight-bold">250,000 VND</p>
+                                    <button class="btn btn-custom btn-block" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                                    <a href="quanshort.html" class="btn btn-info btn-block mt-2">Xem chi tiết</a>
+                                </div>
+                                <div class="card-footer">
+                                    <h6>Đánh giá sản phẩm</h6>
+                                    <div class="rating mb-2">
+                                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                                        <!-- Change to actual star rating if needed -->
+                                    </div>
+                                    <textarea class="form-control mb-2" placeholder="Nhập đánh giá của bạn..."></textarea>
+                                    <button class="btn btn-secondary btn-block" onclick="submitReview('Áo thun nam')">Gửi đánh giá</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card p-3 shadow-sm hover-effect h-100">
+                                <a href="moden.html">
+                                    <img src="../img/hiphop.png" alt="Sản phẩm mới 5" class="card-img-top">
+                                </a>
+                                <div class="card-body text-center">
+                                    <a href="moden.html">
+                                        <h5 class="card-title">Quần jean</h5>
+                                    </a>
+                                    <p class="card-text">Phá đảo phong cách</p>
+                                    <p class="text-danger font-weight-bold">350,000 VND</p>
+                                    <button class="btn btn-custom btn-block" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                                    <a href="moden.html" class="btn btn-info btn-block mt-2">Xem chi tiết</a>
+                                </div>
+                                <div class="card-footer">
+                                    <h6>Đánh giá sản phẩm</h6>
+                                    <div class="rating mb-2">
+                                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                                        <!-- Change to actual star rating if needed -->
+                                    </div>
+                                    <textarea class="form-control mb-2" placeholder="Nhập đánh giá của bạn..."></textarea>
+                                    <button class="btn btn-secondary btn-block" onclick="submitReview('Áo thun nam')">Gửi đánh giá</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- More products can be added here -->
+                    </div>
+                </div>
+            </div>
+            <script>
+                function submitReview(productName) {
+                    const reviewText = document.querySelector('.form-control').value;
+                    if (reviewText.trim()) {
+                        alert(`Đánh giá của bạn cho sản phẩm ${productName} đã được gửi!`);
+                        // You could add functionality to save the review to a database or display it on the page
+                    } else {
+                        alert("Vui lòng nhập đánh giá trước khi gửi.");
+                    }
+                }
+
+                // Khởi tạo giỏ hàng nếu chưa tồn tại
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                // Hàm thêm sản phẩm vào giỏ hàng
+                function addToCart(name, price) {
+                    // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+                    const existingProduct = cart.find(item => item.name === name);
+
+                    if (existingProduct) {
+                        // Nếu có, tăng số lượng
+                        existingProduct.quantity += 1;
+                    } else {
+                        // Nếu chưa có, thêm sản phẩm mới
+                        cart.push({
+                            name,
+                            price,
+                            quantity: 1
+                        });
+                    }
+
+                    // Lưu giỏ hàng vào localStorage
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+                    // Thông báo
+                    alert("Sản phẩm đã được thêm vào giỏ hàng!");
+                }
+
+                function toggleCartDetails(event) {
+                    // Hiển thị chi tiết giỏ hàng (nếu cần)
+                    // Sau đó chuyển hướng
+                    window.location.href = "giohang.html";
+                }
+            </script>
+            <script>
+                function addToCart(productName, price) {
+                    // Lấy giỏ hàng từ localStorage (hoặc tạo mới nếu chưa có)
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                    // Thêm sản phẩm vào giỏ hàng
+                    cart.push({
+                        productName: productName,
+                        price: price
+                    });
+
+                    // Lưu lại giỏ hàng vào localStorage
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+                    // Chuyển hướng đến trang giohang.html
+                    window.location.href = 'giohang.html';
+                }
+            </script>
+
+            <script>
+                window.onload = function() {
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    if (cart.length === 0) {
+                        document.getElementById('cart-details').innerHTML = '<p>Giỏ hàng của bạn đang trống.</p>';
+                    } else {
+                        let cartHTML = '';
+                        cart.forEach(item => {
+                            cartHTML += `<div>${item.productName} - ${item.price}</div>`;
+                        });
+                        document.getElementById('cart-details').innerHTML = cartHTML;
+                    }
+                };
+            </script>
+            <script>
+                // Hàm thêm sản phẩm vào giỏ hàng
+                function addToCart(productName, price) {
+                    // Lấy giỏ hàng hiện tại từ localStorage
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                    // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+                    const existingProduct = cart.find(item => item.name === productName);
+
+                    if (existingProduct) {
+                        // Nếu sản phẩm đã có trong giỏ hàng, tăng số lượng
+                        existingProduct.quantity += 1;
+                    } else {
+                        // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới
+                        cart.push({
+                            name: productName,
+                            price: parseInt(price.replace(' VND', '').replace(',', '')), // Chuyển đổi giá trị sang số
+                            quantity: 1
+                        });
+                    }
+
+                    // Lưu giỏ hàng vào localStorage
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+                    // Cập nhật giao diện giỏ hàng (nếu cần)
+                    renderCartItems();
+                }
+                // Hàm hiển thị giỏ hàng
+                function renderCartItems() {
+                    const cartItemsContainer = document.getElementById("cart-items");
+                    const emptyCartMessage = document.getElementById("empty-cart-message");
+                    const totalPriceElement = document.getElementById("total-price");
+
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                    // Xóa các sản phẩm hiện tại (nếu có)
+                    cartItemsContainer.innerHTML = "";
+
+                    // Kiểm tra giỏ hàng rỗng
+                    if (cart.length === 0) {
+                        emptyCartMessage.style.display = "block";
+                        totalPriceElement.innerText = "0 VND";
+                        return;
+                    }
+
+                    // Ẩn thông báo giỏ hàng rỗng
+                    emptyCartMessage.style.display = "none";
+
+                    let totalPrice = 0;
+
+                    // Tạo các mục giỏ hàng
+                    cart.forEach((item, index) => {
+                        totalPrice += item.price * item.quantity;
+
+                        const cartItem = document.createElement("div");
+                        cartItem.className = "cart-item";
+
+                        cartItem.innerHTML = `
+            <div class="cart-item-info">
+                <span class="cart-item-name">${item.name}</span><br>
+                <span class="cart-item-price">${item.price.toLocaleString()} VND</span><br>
+                <span class="cart-item-quantity">Số lượng: ${item.quantity}</span>
+            </div>
+            <span class="remove-btn" onclick="removeItem(${index})">Xóa</span>
+        `;
+
+                        cartItemsContainer.appendChild(cartItem);
+                    });
+
+                    // Cập nhật tổng tiền
+                    totalPriceElement.innerText = `${totalPrice.toLocaleString()} VND`;
+                }
+                // Hàm xóa sản phẩm khỏi giỏ hàng
+                function removeItem(index) {
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    cart.splice(index, 1); // Xóa sản phẩm tại vị trí 'index'
+                    localStorage.setItem('cart', JSON.stringify(cart)); // Cập nhật giỏ hàng
+                    renderCartItems(); // Cập nhật giỏ hàng trên giao diện
+                }
+            </script>
+            <!-- Custom Carousel Controls -->
+            <a class="carousel-control-prev custom-arrow-left" href="#productCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Trước</span>
+            </a>
+            <a class="carousel-control-next custom-arrow-right" href="#productCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Tiếp</span>
+            </a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
+
+</body>
+<div class="main-content">
+    <!-- Nội dung khác của trang -->
+</div>
+<footer class="footer-info">
+    <div class="footer-column">
+        <h3>Thông Tin Liên Hệ</h3>
+        <img src="../img/0000.jpg" alt="Thông tin liên hệ" width="50" style="margin-bottom: 10px;">
+        <p>Địa chỉ: 76/17 Đường Trần Bá Giao, Thành phố HCM</p>
+        <p>Email: lienhe@VDStore.com</p>
+    </div>
+    <div class="footer-column">
+        <h3>Chính Sách</h3>
+        <p>Chính sách bảo hành</p>
+        <p>Chính sách đổi trả</p>
+        <p>Chính sách vận chuyển</p>
+    </div>
+    <div class="footer-column">
+        <h3>Kết Nối Với Chúng Tôi</h3>
+        <div class="social-media">
+            <a href="https://www.facebook.com/vdoann07" target="_blank"><img src="../img/images (1).jpg" alt="Facebook" width="30"></a>
+            <a href="https://www.instagram.com/vdoann07/" target="_blank"><img src="../img/tải xuống (5).jpg" alt="Instagram" width="30"></a>
+            <a href="https://www.youtube.com/@vovanoan1489" target="_blank"><img src="../img/youtubee.png" alt="YouTube" width="30"></a>
+        </div>
+        <h4>Đăng Ký Nhận Tin</h4>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Nhập email của bạn" required>
+            <button type="button">Đăng ký</button>
+        </form>
+        <h4>Liên Kết Nhanh</h4>
+        <ul>
+            <li><a href="#">Điều Khoản Dịch Vụ</a></li>
+            <li><a href="#">Chính Sách Bảo Mật</a></li>
+            <li><a href="#">Câu Hỏi Thường Gặp</a></li>
+        </ul>
+    </div>
+
+</footer>
+<div id="footer-placeholder"></div>
+<div class="footer-bottom">
+    <p>&copy; 2021 VDStore. All rights reserved.</p>
+</div>
+<script>
+    function addToCart() {
+        alert("Sản phẩm đã được thêm vào giỏ hàng!");
+    }
+</script>
+
+</html>

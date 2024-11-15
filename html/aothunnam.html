@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Áo Thun Nam</title>
+    <link rel="stylesheet" href="../css/layout.css">
+</head>
+<style>
+    /* Đặt kiểu dáng cơ bản */
+    
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+    
+    header {
+        background-color: #000000;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    
+    h1,
+    h2,
+    h3 {
+        margin: 0.5em 0;
+    }
+    
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    /* Căn chỉnh cho phần sản phẩm */
+    
+    section {
+        padding: 2em;
+    }
+    
+    .product-item,
+    .product-info {
+        background-color: white;
+        padding: 1.5em;
+        margin: 1em auto;
+        border-radius: 8px;
+        max-width: 600px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    .product-item h3 {
+        color: #555;
+    }
+    
+    .product-image {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 8px;
+        margin: 1em 0;
+    }
+    /* Kiểu dáng cho nút */
+    
+    button {
+        background-color: #44494c;
+        color: white;
+        border: none;
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+        background-color: #000000;
+    }
+    /* Phần footer */
+    
+    .footer-info {
+        background-color: #000000;
+        color: white;
+        padding: 2em 1em;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    
+    .footer-info .footer-column {
+        flex: 1;
+        min-width: 250px;
+        padding: 1em;
+    }
+    
+    .footer-info h3,
+    .footer-info h4 {
+        color: #dfdfdf;
+    }
+    
+    .footer-info p {
+        color: #ddd;
+        margin: 0.5em 0;
+    }
+    
+    .footer-info .social-media a {
+        margin: 0 10px;
+        display: inline-block;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        justify-content: center;
+        gap: 0.5em;
+        margin-top: 1em;
+    }
+    
+    .newsletter-form input[type="email"] {
+        padding: 0.5em;
+        font-size: 1em;
+        border: none;
+        border-radius: 4px;
+        width: 200px;
+    }
+    
+    .newsletter-form button {
+        background-color: #4f4f4f;
+        color: rgb(254, 254, 254);
+        border: none;
+        padding: 0.5em 1em;
+        font-size: 1em;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .newsletter-form button:hover {
+        background-color: #ebebeb;
+    }
+    
+    .footer-info ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .footer-info ul li {
+        margin: 0.5em 0;
+    }
+    
+    .footer-info ul li a {
+        color: #ffffff;
+    }
+    
+    .footer-info ul li a:hover {
+        color: #ddd;
+    }
+    
+    .btn-back {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 20px;
+        color: #f0f0f0;
+        /* Light green color for text */
+        background-color: #434644;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    }
+    
+    .btn-back:hover {
+        background-color: #0f0f0f;
+        color: #ffffff;
+        /* Changes to white on hover */
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<body>
+
+    <header>
+        <a href="index.html" class="btn-back">Quay lại Trang chủ</a>
+        <h1>Áo Thun Nam</h1>
+    </header>
+
+    <section class="product-info">
+        <img src="../img/aothung.png" alt="Áo thun nam" class="product-image">
+        <h2>Áo Thun Nam Thời Trang</h2>
+        <p>Áo thun nam chất lượng cao, phù hợp cho mọi dịp và thời tiết.</p>
+
+        <ul>
+            <li><strong>Chất liệu:</strong> 100% cotton</li>
+            <li><strong>Màu sắc:</strong> Trắng, đen, xanh dương, xám</li>
+            <li><strong>Kích thước:</strong> S, M, L, XL</li>
+            <li><strong>Giá:</strong> 300,000 VNĐ</li>
+        </ul>
+
+        <button onclick="addToCart()">Thêm vào giỏ hàng</button>
+    </section>
+
+    <footer class="footer-info">
+        <div class="footer-column">
+            <h3>Thông Tin Liên Hệ</h3>
+            <a href="index.html">
+                <img src="../img/0000.jpg" alt="Thông tin liên hệ" width="50" style="margin-bottom: 10px;">
+            </a>
+            <p>Địa chỉ: 76/17 Đường Trần Bá Giao, Thành phố HCM</p>
+            <p>Email: lienhe@VDStore.com</p>
+        </div>
+        <div class="footer-column">
+            <h3>Chính Sách</h3>
+            <p>Chính sách bảo hành</p>
+            <p>Chính sách đổi trả</p>
+            <p>Chính sách vận chuyển</p>
+        </div>
+        <div class="footer-column">
+            <h3>Kết Nối Với Chúng Tôi</h3>
+            <div class="social-media">
+                <a href="https://www.facebook.com/vdoann07" target="_blank"><img src="../img/images (1).jpg" alt="Facebook" width="30"></a>
+                <a href="https://www.instagram.com/vdoann07/" target="_blank"><img src="../img/tải xuống (5).jpg" alt="Instagram" width="30"></a>
+                <a href="https://www.youtube.com/@vovanoan1489" target="_blank"><img src="../img/youtubee.png" alt="YouTube" width="30"></a>
+            </div>
+            <h4>Đăng Ký Nhận Tin</h4>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Nhập email của bạn" required>
+                <button type="button">Đăng ký</button>
+            </form>
+            <h4>Liên Kết Nhanh</h4>
+            <ul>
+                <li><a href="#">Điều Khoản Dịch Vụ</a></li>
+                <li><a href="#">Chính Sách Bảo Mật</a></li>
+                <li><a href="#">Câu Hỏi Thường Gặp</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="footer-placeholder"></div>
+    <div class="footer-bottom">
+        <p>&copy; 2021 VDStore. All rights reserved.</p>
+    </div>
+    <script>
+        function addToCart() {
+            alert("Sản phẩm đã được thêm vào giỏ hàng!");
+        }
+    </script>
+
+</body>
+
+</html>
